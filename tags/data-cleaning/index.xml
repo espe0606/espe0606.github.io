@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data cleaning on Ryan&#39;s Blog</title>
+    <link>https://&lt;USERNAME&gt;.github.io/tags/data-cleaning/</link>
+    <description>Recent content in data cleaning on Ryan&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 30 Nov 2022 15:54:56 +0100</lastBuildDate><atom:link href="https://<USERNAME>.github.io/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Regular expression in dealing with datetime</title>
+      <link>https://&lt;USERNAME&gt;.github.io/posts/2022/11/regular-expression-in-dealing-with-datetime/</link>
+      <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>
+      
+      <guid>https://&lt;USERNAME&gt;.github.io/posts/2022/11/regular-expression-in-dealing-with-datetime/</guid>
+      <description>Last week I encountered a medical dataset that has multiple types of date time format. My task is to correctly identify all of the different date variants encoded in this dataset and to properly normalize and sort the dates.
+Some of the variants are like this:
+* 04/20/2009; 04/20/09; 4/20/09; 4/3/09 * Mar-20-2009; Mar 20, 2009; March 20, 2009; Mar. 20, 2009; Mar 20 2009; * 20 Mar 2009; 20 March 2009; 20 Mar.</description>
+    </item>
+    
+  </channel>
+</rss>

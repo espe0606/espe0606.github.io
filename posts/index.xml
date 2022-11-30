@@ -1,0 +1,153 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Ryan&#39;s Blog</title>
+        <link>https://&lt;USERNAME&gt;.github.io/posts/</link>
+        <description>Recent content in Posts on Ryan&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Wed, 30 Nov 2022 15:54:56 +0100</lastBuildDate>
+        <atom:link href="https://<USERNAME>.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Regular expression in dealing with datetime</title>
+            <link>https://&lt;USERNAME&gt;.github.io/posts/2022/11/regular-expression-in-dealing-with-datetime/</link>
+            <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>
+            
+            <guid>https://&lt;USERNAME&gt;.github.io/posts/2022/11/regular-expression-in-dealing-with-datetime/</guid>
+            <description>Last week I encountered a medical dataset that has multiple types of date time format. My task is to correctly identify all of the different date variants encoded in this dataset and to properly normalize and sort the dates.
+Some of the variants are like this:
+* 04/20/2009; 04/20/09; 4/20/09; 4/3/09 * Mar-20-2009; Mar 20, 2009; March 20, 2009; Mar. 20, 2009; Mar 20 2009; * 20 Mar 2009; 20 March 2009; 20 Mar.</description>
+            <content type="html"><![CDATA[<p>Last week I encountered a medical dataset that has multiple types of date time format. My task is to correctly identify all of the different date variants encoded in this dataset and to properly normalize and sort the dates.</p>
+<p>Some of the variants are like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">*</span> <span style="color:#ae81ff">04</span><span style="color:#f92672">/</span><span style="color:#ae81ff">20</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2009</span>; <span style="color:#ae81ff">04</span><span style="color:#f92672">/</span><span style="color:#ae81ff">20</span><span style="color:#f92672">/</span><span style="color:#ae81ff">09</span>; <span style="color:#ae81ff">4</span><span style="color:#f92672">/</span><span style="color:#ae81ff">20</span><span style="color:#f92672">/</span><span style="color:#ae81ff">09</span>; <span style="color:#ae81ff">4</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">09</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">*</span> Mar<span style="color:#f92672">-</span><span style="color:#ae81ff">20</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2009</span>; Mar <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">2009</span>; March <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">2009</span>;  Mar<span style="color:#f92672">.</span> <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">2009</span>; Mar <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">2009</span>;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">*</span> <span style="color:#ae81ff">20</span> Mar <span style="color:#ae81ff">2009</span>; <span style="color:#ae81ff">20</span> March <span style="color:#ae81ff">2009</span>; <span style="color:#ae81ff">20</span> Mar<span style="color:#f92672">.</span> <span style="color:#ae81ff">2009</span>; <span style="color:#ae81ff">20</span> March, <span style="color:#ae81ff">2009</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">*</span> Mar <span style="color:#ae81ff">20</span>th, <span style="color:#ae81ff">2009</span>; Mar <span style="color:#ae81ff">21</span>st, <span style="color:#ae81ff">2009</span>; Mar <span style="color:#ae81ff">22</span>nd, <span style="color:#ae81ff">2009</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">*</span> Feb <span style="color:#ae81ff">2009</span>; Sep <span style="color:#ae81ff">2009</span>; Oct <span style="color:#ae81ff">2010</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">*</span> <span style="color:#ae81ff">6</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2008</span>; <span style="color:#ae81ff">12</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2009</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">*</span> <span style="color:#ae81ff">2009</span>; <span style="color:#ae81ff">2010</span>
+</span></span></code></pre></div><p>There are several rules that I need to follow:</p>
+<ul>
+<li>Assume all dates in xx/xx/xx format are mm/dd/yy</li>
+<li>Assume all dates where year is encoded in only two digits are years from the 1900&rsquo;s (e.g. 1/5/89 is January 5th, 1989)</li>
+<li>If the day is missing (e.g. 9/2009), assume it is the first day of the month (e.g. September 1, 2009).</li>
+<li>If the month is missing (e.g. 2010), assume it is the first of January of that year (e.g. January 1, 2010).</li>
+<li>Watch out for potential typos as this is a raw, real-life derived dataset.</li>
+</ul>
+<p>Firstly we need to import several modules and convert the <code>txt</code> file to <code>pd.DataFrame</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> dateutil.parser
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>doc <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;dates.txt&#39;</span>) <span style="color:#66d9ef">as</span> file:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> file:
+</span></span><span style="display:flex;"><span>        doc<span style="color:#f92672">.</span>append(line)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(doc)
+</span></span></code></pre></div><p>Module <code>dateutil.parser</code> is used to convert strings to datetime objects.</p>
+<p>Now we need to find out all date formats that belong to different categories. Regular expression is very handy for this kinds of task</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>lower()
+</span></span><span style="display:flex;"><span>lst1 <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>findall(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;(\d{1,2}[-/]\d{1,2}[-/](?:\d</span><span style="color:#e6db74">{4}</span><span style="color:#e6db74">|\d</span><span style="color:#e6db74">{2}</span><span style="color:#e6db74">))&#39;</span>)
+</span></span><span style="display:flex;"><span>lst2 <span style="color:#f92672">=</span>  df<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>findall(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;(\d</span><span style="color:#e6db74">{2}</span><span style="color:#e6db74">\s(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*(?:\.\s|,\s|\s)\d</span><span style="color:#e6db74">{4}</span><span style="color:#e6db74">)&#39;</span>)
+</span></span><span style="display:flex;"><span>lst3 <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>findall(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;((?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*(?:-|\s|\.\s)\d</span><span style="color:#e6db74">{2}</span><span style="color:#e6db74">(?:,\s|\s|-)\d</span><span style="color:#e6db74">{4}</span><span style="color:#e6db74">)&#39;</span>)            
+</span></span><span style="display:flex;"><span>lst4 <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>findall(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;((?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*(?:\.\s|,\s|\s)\d</span><span style="color:#e6db74">{4}</span><span style="color:#e6db74">)&#39;</span>)
+</span></span><span style="display:flex;"><span>lst5 <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>findall(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;(\d{1,2}/\d</span><span style="color:#e6db74">{4}</span><span style="color:#e6db74">)&#39;</span>)
+</span></span><span style="display:flex;"><span>lst6 <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>findall(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;((?:19|20)\d</span><span style="color:#e6db74">{2}</span><span style="color:#e6db74">)&#39;</span>)
+</span></span></code></pre></div><p><code>lst1</code> finds date in form like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#ae81ff">0</span>      [<span style="color:#ae81ff">03</span><span style="color:#f92672">/</span><span style="color:#ae81ff">25</span><span style="color:#f92672">/</span><span style="color:#ae81ff">93</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>       [<span style="color:#ae81ff">6</span><span style="color:#f92672">/</span><span style="color:#ae81ff">18</span><span style="color:#f92672">/</span><span style="color:#ae81ff">85</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>        [<span style="color:#ae81ff">7</span><span style="color:#f92672">/</span><span style="color:#ae81ff">8</span><span style="color:#f92672">/</span><span style="color:#ae81ff">71</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>       [<span style="color:#ae81ff">9</span><span style="color:#f92672">/</span><span style="color:#ae81ff">27</span><span style="color:#f92672">/</span><span style="color:#ae81ff">75</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>        [<span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">6</span><span style="color:#f92672">/</span><span style="color:#ae81ff">96</span>]
+</span></span></code></pre></div><p><code>lst2</code> finds date form as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#ae81ff">125</span>      [<span style="color:#ae81ff">24</span> jan <span style="color:#ae81ff">2001</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">126</span>      [<span style="color:#ae81ff">10</span> sep <span style="color:#ae81ff">2004</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">127</span>      [<span style="color:#ae81ff">26</span> may <span style="color:#ae81ff">1982</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">128</span>     [<span style="color:#ae81ff">28</span> june <span style="color:#ae81ff">2002</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">129</span>      [<span style="color:#ae81ff">06</span> may <span style="color:#ae81ff">1972</span>]
+</span></span></code></pre></div><p><code>lst3</code> finds date form like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#ae81ff">194</span>        [april <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">1990</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">195</span>          [may <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">2001</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">196</span>          [feb <span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">1994</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">197</span>     [february <span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">1981</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">198</span>     [october<span style="color:#f92672">.</span> <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">2013</span>]
+</span></span></code></pre></div><p><code>lst4</code> finds date form as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#ae81ff">228</span>    [september <span style="color:#ae81ff">1985</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">229</span>         [june <span style="color:#ae81ff">2011</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">230</span>          [may <span style="color:#ae81ff">1986</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">231</span>          [may <span style="color:#ae81ff">2016</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">232</span>         [july <span style="color:#ae81ff">1977</span>]
+</span></span></code></pre></div><p><code>lst5</code> is similar as <code>lst4</code>, both contain only year and month:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#ae81ff">343</span>     [<span style="color:#ae81ff">6</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1998</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">344</span>     [<span style="color:#ae81ff">6</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2005</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">345</span>    [<span style="color:#ae81ff">10</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1973</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">346</span>     [<span style="color:#ae81ff">9</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2005</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">347</span>    [<span style="color:#ae81ff">03</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1980</span>]
+</span></span></code></pre></div><p><code>lst6</code> finds dates with only years:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#ae81ff">455</span>    [<span style="color:#ae81ff">1984</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">456</span>    [<span style="color:#ae81ff">2000</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">457</span>    [<span style="color:#ae81ff">2001</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">458</span>    [<span style="color:#ae81ff">1982</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">459</span>    [<span style="color:#ae81ff">1998</span>]
+</span></span></code></pre></div><p>Remember we have several rules to follow, the final date form has to include<code>date,month,year</code>. I defined several functions to transform dates in <code>lst4, lst5 and lst6</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_m_d</span>(value):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;January 1 &#34;</span><span style="color:#f92672">+</span>value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_d1</span>(value):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> value[:<span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>]<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;1/&#39;</span><span style="color:#f92672">+</span>value[<span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>:]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_d2</span>(value):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> value[:<span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>]<span style="color:#f92672">+</span><span style="color:#e6db74">&#39; 1, &#39;</span><span style="color:#f92672">+</span>value[<span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>:]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_19</span>(value):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(value) <span style="color:#f92672">==</span> <span style="color:#ae81ff">8</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> value[:<span style="color:#ae81ff">6</span>]<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;19&#39;</span><span style="color:#f92672">+</span>value[<span style="color:#ae81ff">6</span>:]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> len(value) <span style="color:#f92672">==</span> <span style="color:#ae81ff">7</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> value[:<span style="color:#ae81ff">5</span>]<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;19&#39;</span><span style="color:#f92672">+</span>value[<span style="color:#ae81ff">5</span>:]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> len(value) <span style="color:#f92672">==</span> <span style="color:#ae81ff">6</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> value[:<span style="color:#ae81ff">4</span>]<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;19&#39;</span><span style="color:#f92672">+</span>value[<span style="color:#ae81ff">4</span>:]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">date_parser</span>(value):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> dateutil<span style="color:#f92672">.</span>parser<span style="color:#f92672">.</span>parse(value)<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>Function <code>date_parser</code> is to convert all forms of date into single one <code>Year-Month-Day</code>. Then <code>df.sort_values</code> sorted all date from the earliest to the latest.
+The final form is as following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>     date
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">9</span>	<span style="color:#ae81ff">1971</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">84</span>	<span style="color:#ae81ff">1971</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#ae81ff">18</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>	<span style="color:#ae81ff">1971</span><span style="color:#f92672">-</span><span style="color:#ae81ff">07</span><span style="color:#f92672">-</span><span style="color:#ae81ff">08</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">53</span>	<span style="color:#ae81ff">1971</span><span style="color:#f92672">-</span><span style="color:#ae81ff">07</span><span style="color:#f92672">-</span><span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">28</span>	<span style="color:#ae81ff">1971</span><span style="color:#f92672">-</span><span style="color:#ae81ff">09</span><span style="color:#f92672">-</span><span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>	<span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">231</span>	<span style="color:#ae81ff">2016</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">141</span>	<span style="color:#ae81ff">2016</span><span style="color:#f92672">-</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">186</span>	<span style="color:#ae81ff">2016</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">13</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">161</span>	<span style="color:#ae81ff">2016</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">19</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">413</span>	<span style="color:#ae81ff">2016</span><span style="color:#f92672">-</span><span style="color:#ae81ff">11</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">500</span> rows <span style="color:#960050;background-color:#1e0010">×</span> <span style="color:#ae81ff">1</span> columns
+</span></span></code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>My First Post</title>
+            <link>https://&lt;USERNAME&gt;.github.io/posts/2022/11/my-first-post/</link>
+            <pubDate>Tue, 29 Nov 2022 14:31:41 +0100</pubDate>
+            
+            <guid>https://&lt;USERNAME&gt;.github.io/posts/2022/11/my-first-post/</guid>
+            <description>hello, welcome to my blog!!
+My name is Ryan, now living in Barcelona. Previously I worked in Financial sector, especially in PE&amp;amp;VC for more than 10 years, then I wrote a book and got it published in mainland China and HongKong. Now I worked as a freelancer data scientist and will be an enthusiast of A.I and machine learning in the future.
+Since most of my time will be dedicated to learn data science, machine learning and neural networks, this blog will be mainly utilized to record my study progress and some interesting topics.</description>
+            <content type="html"><![CDATA[<p>hello, welcome to my blog!!</p>
+<p>My name is Ryan, now living in Barcelona. Previously I worked in Financial sector, especially in PE&amp;VC for more than 10 years, then I wrote a book and got it published in mainland China and HongKong. Now I worked as a freelancer data scientist and will be an enthusiast of A.I and machine learning in the future.</p>
+<p>Since most of my time will be dedicated to learn data science, machine learning and neural networks, this blog will be mainly utilized to record my study progress and some interesting topics.</p>
+<p>Most skills, including writing, need to be polished frequently, or they will fade into nothing, like they never belonged to you.</p>
+<p>This blog is built upon Hugo and Github, love them.</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

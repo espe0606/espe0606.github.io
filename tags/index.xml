@@ -6,6 +6,34 @@
     <description>Recent content in Tags on Ryan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright><atom:link href="https://<USERNAME>.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 30 Nov 2022 15:54:56 +0100</lastBuildDate><atom:link href="https://<USERNAME>.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Article</title>
+      <link>https://&lt;USERNAME&gt;.github.io/tags/article/</link>
+      <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>
+      
+      <guid>https://&lt;USERNAME&gt;.github.io/tags/article/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data cleaning</title>
+      <link>https://&lt;USERNAME&gt;.github.io/tags/data-cleaning/</link>
+      <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>
+      
+      <guid>https://&lt;USERNAME&gt;.github.io/tags/data-cleaning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://&lt;USERNAME&gt;.github.io/tags/python/</link>
+      <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>
+      
+      <guid>https://&lt;USERNAME&gt;.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
