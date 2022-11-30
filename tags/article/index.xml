@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Article on Ryan&#39;s Blog</title>
-    <link>https://&lt;USERNAME&gt;.github.io/tags/article/</link>
+    <link>https://espe0606.github.io/tags/article/</link>
     <description>Recent content in Article on Ryan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 30 Nov 2022 15:54:56 +0100</lastBuildDate><atom:link href="https://<USERNAME>.github.io/tags/article/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Nov 2022 15:54:56 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/tags/article/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Regular expression in dealing with datetime</title>
-      <link>https://&lt;USERNAME&gt;.github.io/posts/2022/11/regular-expression-in-dealing-with-datetime/</link>
+      <link>https://espe0606.github.io/posts/2022/11/regular-expression-in-dealing-with-datetime/</link>
       <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>
       
-      <guid>https://&lt;USERNAME&gt;.github.io/posts/2022/11/regular-expression-in-dealing-with-datetime/</guid>
+      <guid>https://espe0606.github.io/posts/2022/11/regular-expression-in-dealing-with-datetime/</guid>
       <description>Last week I encountered a medical dataset that has multiple types of date time format. My task is to correctly identify all of the different date variants encoded in this dataset and to properly normalize and sort the dates.
 Some of the variants are like this:
 * 04/20/2009; 04/20/09; 4/20/09; 4/3/09 * Mar-20-2009; Mar 20, 2009; March 20, 2009; Mar. 20, 2009; Mar 20 2009; * 20 Mar 2009; 20 March 2009; 20 Mar.</description>
@@ -21,10 +21,10 @@ Some of the variants are like this:
     
     <item>
       <title>My First Post</title>
-      <link>https://&lt;USERNAME&gt;.github.io/posts/2022/11/my-first-post/</link>
+      <link>https://espe0606.github.io/posts/2022/11/my-first-post/</link>
       <pubDate>Tue, 29 Nov 2022 14:31:41 +0100</pubDate>
       
-      <guid>https://&lt;USERNAME&gt;.github.io/posts/2022/11/my-first-post/</guid>
+      <guid>https://espe0606.github.io/posts/2022/11/my-first-post/</guid>
       <description>hello, welcome to my blog!!
 My name is Ryan, now living in Barcelona. Previously I worked in Financial sector, especially in PE&amp;amp;VC for more than 10 years, then I wrote a book and got it published in mainland China and HongKong. Now I worked as a freelancer data scientist and will be an enthusiast of A.I and machine learning in the future.
 Since most of my time will be dedicated to learn data science, machine learning and neural networks, this blog will be mainly utilized to record my study progress and some interesting topics.</description>

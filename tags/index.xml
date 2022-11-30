@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Ryan&#39;s Blog</title>
-    <link>https://&lt;USERNAME&gt;.github.io/tags/</link>
+    <link>https://espe0606.github.io/tags/</link>
     <description>Recent content in Tags on Ryan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 30 Nov 2022 15:54:56 +0100</lastBuildDate><atom:link href="https://<USERNAME>.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Nov 2022 15:54:56 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Article</title>
-      <link>https://&lt;USERNAME&gt;.github.io/tags/article/</link>
+      <link>https://espe0606.github.io/tags/article/</link>
       <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>
       
-      <guid>https://&lt;USERNAME&gt;.github.io/tags/article/</guid>
+      <guid>https://espe0606.github.io/tags/article/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>data cleaning</title>
-      <link>https://&lt;USERNAME&gt;.github.io/tags/data-cleaning/</link>
+      <title>Data cleaning</title>
+      <link>https://espe0606.github.io/tags/data-cleaning/</link>
       <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>
       
-      <guid>https://&lt;USERNAME&gt;.github.io/tags/data-cleaning/</guid>
+      <guid>https://espe0606.github.io/tags/data-cleaning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://&lt;USERNAME&gt;.github.io/tags/python/</link>
+      <link>https://espe0606.github.io/tags/python/</link>
       <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>
       
-      <guid>https://&lt;USERNAME&gt;.github.io/tags/python/</guid>
+      <guid>https://espe0606.github.io/tags/python/</guid>
       <description></description>
     </item>
     

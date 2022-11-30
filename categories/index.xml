@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Ryan&#39;s Blog</title>
-    <link>https://&lt;USERNAME&gt;.github.io/categories/</link>
+    <link>https://espe0606.github.io/categories/</link>
     <description>Recent content in Categories on Ryan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 30 Nov 2022 15:54:56 +0100</lastBuildDate><atom:link href="https://<USERNAME>.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Nov 2022 15:54:56 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Coding</title>
-      <link>https://&lt;USERNAME&gt;.github.io/categories/coding/</link>
+      <link>https://espe0606.github.io/categories/coding/</link>
       <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>
       
-      <guid>https://&lt;USERNAME&gt;.github.io/categories/coding/</guid>
+      <guid>https://espe0606.github.io/categories/coding/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Science</title>
-      <link>https://&lt;USERNAME&gt;.github.io/categories/data-science/</link>
+      <link>https://espe0606.github.io/categories/data-science/</link>
       <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>
       
-      <guid>https://&lt;USERNAME&gt;.github.io/categories/data-science/</guid>
+      <guid>https://espe0606.github.io/categories/data-science/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Random thoughts</title>
-      <link>https://&lt;USERNAME&gt;.github.io/categories/random-thoughts/</link>
+      <link>https://espe0606.github.io/categories/random-thoughts/</link>
       <pubDate>Tue, 29 Nov 2022 14:31:41 +0100</pubDate>
       
-      <guid>https://&lt;USERNAME&gt;.github.io/categories/random-thoughts/</guid>
+      <guid>https://espe0606.github.io/categories/random-thoughts/</guid>
       <description></description>
     </item>
     
