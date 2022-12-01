@@ -237,15 +237,15 @@ The final form is as following:</p>
         </item>
         
         <item>
-            <title>My First Post</title>
+            <title>My first post</title>
             <link>https://espe0606.github.io/posts/2022/11/my-first-post/</link>
             <pubDate>Tue, 29 Nov 2022 14:31:41 +0100</pubDate>
             
             <guid>https://espe0606.github.io/posts/2022/11/my-first-post/</guid>
-            <description>hello, welcome to my blog!!
+            <description>Hello, welcome to my blog!!
 My name is Ryan, now living in Barcelona. Previously I worked in Financial sector, especially in PE&amp;amp;VC for more than 10 years, then I wrote a book and got it published in mainland China and HongKong. Now I worked as a freelancer data scientist and will be an enthusiast of A.I and machine learning in the future.
 Since most of my time will be dedicated to learn data science, machine learning and neural networks, this blog will be mainly utilized to record my study progress and some interesting topics.</description>
-            <content type="html"><![CDATA[<p>hello, welcome to my blog!!</p>
+            <content type="html"><![CDATA[<p>Hello, welcome to my blog!!</p>
 <p>My name is Ryan, now living in Barcelona. Previously I worked in Financial sector, especially in PE&amp;VC for more than 10 years, then I wrote a book and got it published in mainland China and HongKong. Now I worked as a freelancer data scientist and will be an enthusiast of A.I and machine learning in the future.</p>
 <p>Since most of my time will be dedicated to learn data science, machine learning and neural networks, this blog will be mainly utilized to record my study progress and some interesting topics.</p>
 <p>Most skills, including writing, need to be polished frequently, or they will fade into nothing, like they never belong to you.</p>
