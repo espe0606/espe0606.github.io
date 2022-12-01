@@ -7,13 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 01 Dec 2022 07:36:12 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Dec 2022 17:02:04 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How education level affect Gini index and unemployment rate in Barcelona (part 1)</title>
-      <link>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part-1/</link>
+      <title>How education level affect Gini index and unemployment rate in Barcelona (Part. 2)</title>
+      <link>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part.-2/</link>
+      <pubDate>Thu, 01 Dec 2022 17:02:04 +0100</pubDate>
+      
+      <guid>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part.-2/</guid>
+      <description>The dataset 2019_academic.csv covers a survey of all residents&amp;rsquo; educational level (from &amp;ldquo;no education&amp;rdquo; to &amp;ldquo;university&amp;rdquo;) in all ten districts of Barcelona city. Data source is from the open data source run by the city government of Barcelona.
+After cleaning and organizing the raw data and apply Seaborn for the plotting:
+df_edu = df_edu.drop([&amp;#39;Any&amp;#39;,&amp;#39;Codi_Districte&amp;#39;,&amp;#39;Codi_Barri&amp;#39;,&amp;#39;Nom_Barri&amp;#39;], axis=1) df_edu = df_edu[df_edu[&amp;#39;Nivell_academic&amp;#39;]!=&amp;#39;No consta&amp;#39;] df_edu_agg = df_edu.groupby([&amp;#39;Nom_Districte&amp;#39;,&amp;#39;Nivell_academic&amp;#39;]).agg(&amp;#39;sum&amp;#39;).reset_index() plt.figure(figsize=(18,7)) plt.title(&amp;#39;academic level of 10 districts BCN&amp;#39;, fontsize=22) plt.</description>
+    </item>
+    
+    <item>
+      <title>How education level affect Gini index and unemployment rate in Barcelona (Part. 1)</title>
+      <link>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part.-1/</link>
       <pubDate>Thu, 01 Dec 2022 07:36:12 +0100</pubDate>
       
-      <guid>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part-1/</guid>
+      <guid>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part.-1/</guid>
       <description>I like to walk along the streets of Barcelona. Across various districts of the city, I found that those districts not only distinguish themselves from the building styles, but also from other aspects, such as public facilities, road conditions, prices on menus, even outfits of their residents. This phenomenon makes me wonder how this city is look like from a view of data scientist. So I dug some datasets from the open data source run by the city government of Barcelona.</description>
     </item>
     

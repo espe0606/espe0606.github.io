@@ -6,15 +6,119 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 01 Dec 2022 07:36:12 +0100</lastBuildDate>
+        <lastBuildDate>Thu, 01 Dec 2022 17:02:04 +0100</lastBuildDate>
         <atom:link href="https://espe0606.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>How education level affect Gini index and unemployment rate in Barcelona (part 1)</title>
-            <link>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part-1/</link>
+            <title>How education level affect Gini index and unemployment rate in Barcelona (Part. 2)</title>
+            <link>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part.-2/</link>
+            <pubDate>Thu, 01 Dec 2022 17:02:04 +0100</pubDate>
+            
+            <guid>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part.-2/</guid>
+            <description>The dataset 2019_academic.csv covers a survey of all residents&amp;rsquo; educational level (from &amp;ldquo;no education&amp;rdquo; to &amp;ldquo;university&amp;rdquo;) in all ten districts of Barcelona city. Data source is from the open data source run by the city government of Barcelona.
+After cleaning and organizing the raw data and apply Seaborn for the plotting:
+df_edu = df_edu.drop([&amp;#39;Any&amp;#39;,&amp;#39;Codi_Districte&amp;#39;,&amp;#39;Codi_Barri&amp;#39;,&amp;#39;Nom_Barri&amp;#39;], axis=1) df_edu = df_edu[df_edu[&amp;#39;Nivell_academic&amp;#39;]!=&amp;#39;No consta&amp;#39;] df_edu_agg = df_edu.groupby([&amp;#39;Nom_Districte&amp;#39;,&amp;#39;Nivell_academic&amp;#39;]).agg(&amp;#39;sum&amp;#39;).reset_index() plt.figure(figsize=(18,7)) plt.title(&amp;#39;academic level of 10 districts BCN&amp;#39;, fontsize=22) plt.</description>
+            <content type="html"><![CDATA[<p>The dataset <code>2019_academic.csv</code> covers a survey of all residents&rsquo; educational level (from &ldquo;no education&rdquo; to &ldquo;university&rdquo;) in all ten districts of Barcelona city.  Data source is from the <a href="https://opendata-ajuntament.barcelona.cat/es/">open data source</a> run by the city government of Barcelona.</p>
+<p>After cleaning and organizing the raw data and apply <code>Seaborn</code> for the plotting:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>df_edu <span style="color:#f92672">=</span> df_edu<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Any&#39;</span>,<span style="color:#e6db74">&#39;Codi_Districte&#39;</span>,<span style="color:#e6db74">&#39;Codi_Barri&#39;</span>,<span style="color:#e6db74">&#39;Nom_Barri&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>df_edu <span style="color:#f92672">=</span> df_edu[df_edu[<span style="color:#e6db74">&#39;Nivell_academic&#39;</span>]<span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;No consta&#39;</span>]
+</span></span><span style="display:flex;"><span>df_edu_agg <span style="color:#f92672">=</span> df_edu<span style="color:#f92672">.</span>groupby([<span style="color:#e6db74">&#39;Nom_Districte&#39;</span>,<span style="color:#e6db74">&#39;Nivell_academic&#39;</span>])<span style="color:#f92672">.</span>agg(<span style="color:#e6db74">&#39;sum&#39;</span>)<span style="color:#f92672">.</span>reset_index()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">18</span>,<span style="color:#ae81ff">7</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;academic level of 10 districts BCN&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">22</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Districts&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;number of people&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">=</span>sns<span style="color:#f92672">.</span>scatterplot(data<span style="color:#f92672">=</span>df_edu_agg, x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Nom_Districte&#39;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Nombre&#39;</span>,hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Nivell_academic&#39;</span>, style<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Nivell_academic&#39;</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>move_legend(ax, <span style="color:#e6db74">&#34;upper left&#34;</span>, bbox_to_anchor<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>))
+</span></span></code></pre></div><p>I get this scatterplot:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/graphs/edu_scatter.png" alt="&amp;ldquo;Scatterplot of education&amp;rdquo;" title="scatter of education"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Scatterplot of residents&rsquo; educational level</em></td>
+</tr>
+</tbody>
+</table>
+<p>Well, this graph doesn&rsquo;t provide enough information for me to see the trend. One option is to narrow the education level to two categories: above or equal high school level and below high school level.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>df_edu_agg[<span style="color:#e6db74">&#39;Nivell_academic&#39;</span>] <span style="color:#f92672">=</span> df_edu_agg[<span style="color:#e6db74">&#39;Nivell_academic&#39;</span>]<span style="color:#f92672">.</span>replace([<span style="color:#e6db74">&#39;Estudis universitaris / CFGS grau superior&#39;</span>], <span style="color:#e6db74">&#39;university or higher&#39;</span>)
+</span></span><span style="display:flex;"><span>df_edu_agg[<span style="color:#e6db74">&#39;Nivell_academic&#39;</span>] <span style="color:#f92672">=</span> df_edu_agg[<span style="color:#e6db74">&#39;Nivell_academic&#39;</span>]<span style="color:#f92672">.</span>replace([<span style="color:#e6db74">&#39;Batxillerat superior / BUP / COU / FPII / CFGM grau mitjà&#39;</span>], <span style="color:#e6db74">&#39;high school&#39;</span>)
+</span></span><span style="display:flex;"><span>df_edu_agg[<span style="color:#e6db74">&#39;Nivell_academic&#39;</span>] <span style="color:#f92672">=</span> df_edu_agg[<span style="color:#e6db74">&#39;Nivell_academic&#39;</span>]<span style="color:#f92672">.</span>replace([<span style="color:#e6db74">&#34;Estudis primaris / certificat d&#39;escolaritat / EGB&#34;</span>], <span style="color:#e6db74">&#39;elementary school&#39;</span>)
+</span></span><span style="display:flex;"><span>df_edu_agg[<span style="color:#e6db74">&#39;Nivell_academic&#39;</span>] <span style="color:#f92672">=</span> df_edu_agg[<span style="color:#e6db74">&#39;Nivell_academic&#39;</span>]<span style="color:#f92672">.</span>replace([<span style="color:#e6db74">&#34;Batxillerat elemental / graduat escolar / ESO / FPI&#34;</span>], <span style="color:#e6db74">&#39;middle school&#39;</span>)
+</span></span><span style="display:flex;"><span>df_edu_agg <span style="color:#f92672">=</span> df_edu_agg<span style="color:#f92672">.</span>pivot(index <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Nom_Districte&#39;</span>, columns <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Nivell_academic&#39;</span>)
+</span></span><span style="display:flex;"><span>df_edu_agg[<span style="color:#e6db74">&#39;above_highschool&#39;</span>]<span style="color:#f92672">=</span> df_edu_agg[<span style="color:#e6db74">&#39;Nombre&#39;</span>][<span style="color:#e6db74">&#39;university or higher&#39;</span>] <span style="color:#f92672">+</span> df_edu_agg[<span style="color:#e6db74">&#39;Nombre&#39;</span>][<span style="color:#e6db74">&#39;high school&#39;</span>]
+</span></span><span style="display:flex;"><span>df_edu_agg[<span style="color:#e6db74">&#39;below_highschool&#39;</span>]<span style="color:#f92672">=</span> df_edu_agg[<span style="color:#e6db74">&#39;Nombre&#39;</span>][<span style="color:#e6db74">&#39;Sense estudis&#39;</span>] <span style="color:#f92672">+</span> df_edu_agg[<span style="color:#e6db74">&#39;Nombre&#39;</span>][<span style="color:#e6db74">&#39;elementary school&#39;</span>] <span style="color:#f92672">+</span> df_edu_agg[<span style="color:#e6db74">&#39;Nombre&#39;</span>][<span style="color:#e6db74">&#39;middle school&#39;</span>]
+</span></span><span style="display:flex;"><span>df_edu_agg <span style="color:#f92672">=</span> df_edu_agg[[<span style="color:#e6db74">&#39;above_highschool&#39;</span>,<span style="color:#e6db74">&#39;below_highschool&#39;</span>]]<span style="color:#f92672">.</span>reset_index()
+</span></span><span style="display:flex;"><span>df_edu_agg <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>melt(df_edu_agg, id_vars<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Nom_Districte&#34;</span>, var_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Nivell_academic&#34;</span>, value_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Nombre&#34;</span>)
+</span></span></code></pre></div><p>Now the head of most updated dataset looks like this:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/graphs/organized_edu.png" alt="&amp;ldquo;organized education data&amp;rdquo;" title="organized education data"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Organized education data</em></td>
+</tr>
+</tbody>
+</table>
+<p>Now plot the bar graph that shows academic level in 10 districts with following code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">18</span>,<span style="color:#ae81ff">7</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;academic level of 10 districts BCN, version 2&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">22</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">=</span>sns<span style="color:#f92672">.</span>barplot(data<span style="color:#f92672">=</span>df_edu_agg, x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Nom_Districte&#39;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Nombre&#39;</span>,hue <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Nivell_academic&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Districts&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;number of people&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>move_legend(ax, <span style="color:#e6db74">&#34;upper left&#34;</span>, bbox_to_anchor<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>))
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/graphs/edu_bar.png" alt="&amp;ldquo;Bargraph education data&amp;rdquo;" title="Bargraph education data"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Bar graph of education data</em></td>
+</tr>
+</tbody>
+</table>
+<p>Graph above give me some hints:</p>
+<p>1.The district of Nou Barris is the only district that high education population is less than low education population. It also has the highest unemployment rate.</p>
+<p>2.Among other districts, the district of Sarrià-Sant Gervasi has the biggest difference between high-education group and low-education group. It also has the highest Gini index and lowest unemployment rate. This is an interesting finding.</p>
+<p>3.The district Eixample has the biggest population that received high education.</p>
+<p>Before I move to check correlation between education level and Gini index and correlation between education level and unemployment rate, I think it might be helpful to engineer the data a bit: to use the difference between population of high education group and of low education group.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>final_result1[<span style="color:#e6db74">&#39;diff_edu&#39;</span>] <span style="color:#f92672">=</span> final_result1[<span style="color:#e6db74">&#39;Nombre_x&#39;</span>] <span style="color:#f92672">-</span> final_result1[<span style="color:#e6db74">&#39;Nombre_y&#39;</span>]
+</span></span><span style="display:flex;"><span>fig,(ax1,ax2) <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>, sharey<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">11</span>,<span style="color:#ae81ff">5</span>))
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>regplot(data<span style="color:#f92672">=</span>final_result1,x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Index_Gini&#39;</span>,y<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;diff_edu&#39;</span>,ax<span style="color:#f92672">=</span>ax1)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>regplot(data<span style="color:#f92672">=</span>final_result1,x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Pes_atur&#39;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;diff_edu&#39;</span>,ax<span style="color:#f92672">=</span>ax2)
+</span></span><span style="display:flex;"><span>ax1<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;number difference&#39;</span>)
+</span></span><span style="display:flex;"><span>ax2<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;number difference&#39;</span>)
+</span></span><span style="display:flex;"><span>ax2<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;unemployment rate&#39;</span>)
+</span></span></code></pre></div><p>The correlation graphs are as following:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/graphs/fin_corre.png" alt="&amp;ldquo;correlation graph&amp;rdquo;" title="correlation graph"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Correlation graph of education, Gini index and unemployment rate</em></td>
+</tr>
+</tbody>
+</table>
+<p>Now the trend is much more clear. I can conclude that in Barcelona across all 10 districts, the bigger the population difference between group with high educational level and with low educational level, the higher the Gini index, and the lower the unemployment rate.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>How education level affect Gini index and unemployment rate in Barcelona (Part. 1)</title>
+            <link>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part.-1/</link>
             <pubDate>Thu, 01 Dec 2022 07:36:12 +0100</pubDate>
             
-            <guid>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part-1/</guid>
+            <guid>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part.-1/</guid>
             <description>I like to walk along the streets of Barcelona. Across various districts of the city, I found that those districts not only distinguish themselves from the building styles, but also from other aspects, such as public facilities, road conditions, prices on menus, even outfits of their residents. This phenomenon makes me wonder how this city is look like from a view of data scientist. So I dug some datasets from the open data source run by the city government of Barcelona.</description>
             <content type="html"><![CDATA[<p>I like to walk along the streets of Barcelona. Across various districts of the city, I found that those districts not only distinguish themselves from the building styles, but also from other aspects, such as public facilities, road conditions, prices on menus, even outfits of their residents. This phenomenon makes me wonder how this city is look like from a view of data scientist. So I dug some datasets from the <a href="https://opendata-ajuntament.barcelona.cat/es/">open data source</a> run by the city government of Barcelona.</p>
 <p>I chose to look into three categories, namely Gini index, education level and unemployment rates, all across 10 most populated districts of the city, in the year of 2019.</p>
