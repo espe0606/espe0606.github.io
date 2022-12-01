@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Random Thoughts on Ryan&#39;s Blog</title>
-    <link>https://espe0606.github.io/categories/random-thoughts/</link>
-    <description>Recent content in Random Thoughts on Ryan&#39;s Blog</description>
+    <title>Thoughts in my mind on Ryan&#39;s Blog</title>
+    <link>https://espe0606.github.io/tags/thoughts-in-my-mind/</link>
+    <description>Recent content in Thoughts in my mind on Ryan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 29 Nov 2022 14:31:41 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/categories/random-thoughts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Nov 2022 14:31:41 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/tags/thoughts-in-my-mind/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post</title>
       <link>https://espe0606.github.io/posts/2022/11/my-first-post/</link>
