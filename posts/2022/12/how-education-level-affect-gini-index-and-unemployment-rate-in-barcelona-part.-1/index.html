@@ -237,6 +237,21 @@
 </tbody>
 </table>
 <p>Seems there is a negative correlation between these two factors. This discovery is actually the opposite of what i thought. Maybe high Gini index means more rich people, thus they provide more employment opportunities for jobseekers. Now I need to turn to the aspect of education, to find out if it also plays a role in affecting the unemployment rate.(To be continued)</p>
+<div id="git-comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: '{{ .File.BaseFileName }}',
+    owner: 'espe0606',
+    repo: 'blog_commnet_sys',
+    oauth: {
+      client_id: '9302ba06ceeb1b4e3206',
+      client_secret: 'fc654c315b0530ce940e24df17f7d7e8cb8540a6',
+    }
+  })
+  gitment.render('git-comments')
+</script>
 
       </div>
     </article>

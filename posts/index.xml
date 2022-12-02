@@ -45,7 +45,7 @@ $$</p>
 </table>
 <p>The contour plot above shows the  \(loss\)(𝑤,𝑏)  over a range of  𝑤  and  𝑏 . Loss levels are represented by the rings. Overlayed red arrows, is the path of gradient descent. Here are some things to note:</p>
 <ul>
-<li>The path makes steady (monotonic) progress toward its goal.</li>
+<li>The path makes steady progress toward its goal.</li>
 <li>Initial steps are much larger than the steps near the goal.</li>
 </ul>
 <p>Almost all optimization algorithms used in deep learning belong to stochastic gradient descent. When applying it in building Neural Network models, the math part can be directly left to Tensorflow.</p>
@@ -74,6 +74,21 @@ $$</p>
 <p>When a model is built through <code>Tensorflow.keras</code>, adding only a few lines of codes will do the job:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adam&#34;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mae&#34;</span>,)
 </span></span></code></pre></div><p>Certainly the loss function can be substituted by others, and there are several parameters to tune for <code>Adam</code>, I will cover this topic in another post.</p>
+<div id="git-comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: '{{ .File.BaseFileName }}',
+    owner: 'espe0606',
+    repo: 'blog_commnet_sys',
+    oauth: {
+      client_id: '9302ba06ceeb1b4e3206',
+      client_secret: 'fc654c315b0530ce940e24df17f7d7e8cb8540a6',
+    }
+  })
+  gitment.render('git-comments')
+</script>
 ]]></content>
         </item>
         
@@ -178,6 +193,21 @@ df_edu = df_edu.drop([&amp;#39;Any&amp;#39;,&amp;#39;Codi_Districte&amp;#39;,&am
 </tbody>
 </table>
 <p>Now the trend is much more clear. I can conclude that in Barcelona across all 10 districts, the bigger the population difference between group with high educational level and with low educational level, the higher the Gini index, and the lower the unemployment rate.</p>
+<div id="git-comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: '{{ .File.BaseFileName }}',
+    owner: 'espe0606',
+    repo: 'blog_commnet_sys',
+    oauth: {
+      client_id: '9302ba06ceeb1b4e3206',
+      client_secret: 'fc654c315b0530ce940e24df17f7d7e8cb8540a6',
+    }
+  })
+  gitment.render('git-comments')
+</script>
 ]]></content>
         </item>
         
@@ -282,6 +312,21 @@ df_edu = df_edu.drop([&amp;#39;Any&amp;#39;,&amp;#39;Codi_Districte&amp;#39;,&am
 </tbody>
 </table>
 <p>Seems there is a negative correlation between these two factors. This discovery is actually the opposite of what i thought. Maybe high Gini index means more rich people, thus they provide more employment opportunities for jobseekers. Now I need to turn to the aspect of education, to find out if it also plays a role in affecting the unemployment rate.(To be continued)</p>
+<div id="git-comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: '{{ .File.BaseFileName }}',
+    owner: 'espe0606',
+    repo: 'blog_commnet_sys',
+    oauth: {
+      client_id: '9302ba06ceeb1b4e3206',
+      client_secret: 'fc654c315b0530ce940e24df17f7d7e8cb8540a6',
+    }
+  })
+  gitment.render('git-comments')
+</script>
 ]]></content>
         </item>
         
@@ -405,7 +450,22 @@ The final form is as following:</p>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">161</span>	<span style="color:#ae81ff">2016</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">19</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">413</span>	<span style="color:#ae81ff">2016</span><span style="color:#f92672">-</span><span style="color:#ae81ff">11</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">500</span> rows <span style="color:#960050;background-color:#1e0010">×</span> <span style="color:#ae81ff">1</span> columns
-</span></span></code></pre></div>]]></content>
+</span></span></code></pre></div><div id="git-comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: '{{ .File.BaseFileName }}',
+    owner: 'espe0606',
+    repo: 'blog_commnet_sys',
+    oauth: {
+      client_id: '9302ba06ceeb1b4e3206',
+      client_secret: 'fc654c315b0530ce940e24df17f7d7e8cb8540a6',
+    }
+  })
+  gitment.render('git-comments')
+</script>
+]]></content>
         </item>
         
         <item>
@@ -422,6 +482,21 @@ Since most of my time will be dedicated to learn data science, machine learning 
 <p>Since most of my time will be dedicated to learn data science, machine learning and neural networks, this blog will be mainly utilized to record my study progress and some interesting topics.</p>
 <p>Most skills, including writing, need to be polished frequently, or they will fade into nothing, like they never belong to you.</p>
 <p>This blog is built upon Hugo and Github, love them.</p>
+<div id="git-comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: '{{ .File.BaseFileName }}',
+    owner: 'espe0606',
+    repo: 'blog_commnet_sys',
+    oauth: {
+      client_id: '9302ba06ceeb1b4e3206',
+      client_secret: 'fc654c315b0530ce940e24df17f7d7e8cb8540a6',
+    }
+  })
+  gitment.render('git-comments')
+</script>
 ]]></content>
         </item>
         

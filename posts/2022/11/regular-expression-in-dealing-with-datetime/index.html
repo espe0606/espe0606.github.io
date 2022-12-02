@@ -254,7 +254,22 @@ The final form is as following:</p>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">161</span>	<span style="color:#ae81ff">2016</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">19</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">413</span>	<span style="color:#ae81ff">2016</span><span style="color:#f92672">-</span><span style="color:#ae81ff">11</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">500</span> rows <span style="color:#960050;background-color:#1e0010">×</span> <span style="color:#ae81ff">1</span> columns
-</span></span></code></pre></div>
+</span></span></code></pre></div><div id="git-comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: '{{ .File.BaseFileName }}',
+    owner: 'espe0606',
+    repo: 'blog_commnet_sys',
+    oauth: {
+      client_id: '9302ba06ceeb1b4e3206',
+      client_secret: 'fc654c315b0530ce940e24df17f7d7e8cb8540a6',
+    }
+  })
+  gitment.render('git-comments')
+</script>
+
       </div>
     </article>
 

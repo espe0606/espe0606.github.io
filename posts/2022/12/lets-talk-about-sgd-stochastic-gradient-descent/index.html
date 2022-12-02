@@ -41,7 +41,7 @@
 <meta itemprop="name" content="Let&#39;s talk about SGD: Stochastic Gradient Descent">
 <meta itemprop="description" content="A common optimizer, an algorithm that adjusts the weights to minimize the loss"><meta itemprop="datePublished" content="2022-12-02T20:50:12+01:00" />
 <meta itemprop="dateModified" content="2022-12-02T20:50:12+01:00" />
-<meta itemprop="wordCount" content="572"><meta itemprop="image" content="https://espe0606.github.io"/>
+<meta itemprop="wordCount" content="571"><meta itemprop="image" content="https://espe0606.github.io"/>
 <meta itemprop="keywords" content="Tensorflow,Deep Learning,Neural Network," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://espe0606.github.io"/>
@@ -171,7 +171,7 @@ $$</p>
 </table>
 <p>The contour plot above shows the  \(loss\)(𝑤,𝑏)  over a range of  𝑤  and  𝑏 . Loss levels are represented by the rings. Overlayed red arrows, is the path of gradient descent. Here are some things to note:</p>
 <ul>
-<li>The path makes steady (monotonic) progress toward its goal.</li>
+<li>The path makes steady progress toward its goal.</li>
 <li>Initial steps are much larger than the steps near the goal.</li>
 </ul>
 <p>Almost all optimization algorithms used in deep learning belong to stochastic gradient descent. When applying it in building Neural Network models, the math part can be directly left to Tensorflow.</p>
@@ -200,6 +200,21 @@ $$</p>
 <p>When a model is built through <code>Tensorflow.keras</code>, adding only a few lines of codes will do the job:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adam&#34;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mae&#34;</span>,)
 </span></span></code></pre></div><p>Certainly the loss function can be substituted by others, and there are several parameters to tune for <code>Adam</code>, I will cover this topic in another post.</p>
+<div id="git-comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: '{{ .File.BaseFileName }}',
+    owner: 'espe0606',
+    repo: 'blog_commnet_sys',
+    oauth: {
+      client_id: '9302ba06ceeb1b4e3206',
+      client_secret: 'fc654c315b0530ce940e24df17f7d7e8cb8540a6',
+    }
+  })
+  gitment.render('git-comments')
+</script>
 
       </div>
     </article>
@@ -235,7 +250,7 @@ $$</p>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        572 Words
+        571 Words
       </p>
 
       <p>

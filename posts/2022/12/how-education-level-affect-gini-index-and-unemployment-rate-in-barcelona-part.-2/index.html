@@ -235,6 +235,21 @@
 </tbody>
 </table>
 <p>Now the trend is much more clear. I can conclude that in Barcelona across all 10 districts, the bigger the population difference between group with high educational level and with low educational level, the higher the Gini index, and the lower the unemployment rate.</p>
+<div id="git-comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: '{{ .File.BaseFileName }}',
+    owner: 'espe0606',
+    repo: 'blog_commnet_sys',
+    oauth: {
+      client_id: '9302ba06ceeb1b4e3206',
+      client_secret: 'fc654c315b0530ce940e24df17f7d7e8cb8540a6',
+    }
+  })
+  gitment.render('git-comments')
+</script>
 
       </div>
     </article>
