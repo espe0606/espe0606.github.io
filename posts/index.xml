@@ -79,7 +79,7 @@ $$</p>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
   var gitment = new Gitment({
-    id: '{{ .File.BaseFileName }}',
+    id: '<%= page.date %>',
     owner: 'espe0606',
     repo: 'blog_commnet_sys',
     oauth: {
@@ -198,7 +198,7 @@ df_edu = df_edu.drop([&amp;#39;Any&amp;#39;,&amp;#39;Codi_Districte&amp;#39;,&am
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
   var gitment = new Gitment({
-    id: '{{ .File.BaseFileName }}',
+    id: '<%= page.date %>',
     owner: 'espe0606',
     repo: 'blog_commnet_sys',
     oauth: {
@@ -317,7 +317,7 @@ df_edu = df_edu.drop([&amp;#39;Any&amp;#39;,&amp;#39;Codi_Districte&amp;#39;,&am
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
   var gitment = new Gitment({
-    id: '{{ .File.BaseFileName }}',
+    id: '<%= page.date %>',
     owner: 'espe0606',
     repo: 'blog_commnet_sys',
     oauth: {
@@ -455,7 +455,7 @@ The final form is as following:</p>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
   var gitment = new Gitment({
-    id: '{{ .File.BaseFileName }}',
+    id: '<%= page.date %>',
     owner: 'espe0606',
     repo: 'blog_commnet_sys',
     oauth: {
@@ -487,7 +487,7 @@ Since most of my time will be dedicated to learn data science, machine learning 
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
   var gitment = new Gitment({
-    id: '{{ .File.BaseFileName }}',
+    id: '<%= page.date %>',
     owner: 'espe0606',
     repo: 'blog_commnet_sys',
     oauth: {
