@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 01 Dec 2022 17:02:04 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Dec 2022 20:50:12 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Let&#39;s talk about SGD: Stochastic Gradient Descent</title>
+      <link>https://espe0606.github.io/posts/2022/12/lets-talk-about-sgd-stochastic-gradient-descent/</link>
+      <pubDate>Fri, 02 Dec 2022 20:50:12 +0100</pubDate>
+      
+      <guid>https://espe0606.github.io/posts/2022/12/lets-talk-about-sgd-stochastic-gradient-descent/</guid>
+      <description>It is well known that the Neural Network model is functioning by cooperation of two major components:
+A &amp;ldquo;loss function&amp;rdquo; An &amp;ldquo;optimizer&amp;rdquo; The loss function measures the disparity between the the target&amp;rsquo;s true value and the value the model predicts. There are many kinds of loss function in building the NN model, such as MAE (mean absolute error), MSE(mean-squared error) and Huber loss. I will summarize different usages of them in another post.</description>
+    </item>
+    
     <item>
       <title>How education level affect Gini index and unemployment rate in Barcelona (Part. 2)</title>
       <link>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part.-2/</link>
@@ -26,16 +36,6 @@ df_edu = df_edu.drop([&amp;#39;Any&amp;#39;,&amp;#39;Codi_Districte&amp;#39;,&am
       
       <guid>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part.-1/</guid>
       <description>I like to walk along the streets of Barcelona. Across various districts of the city, I found that those districts not only distinguish themselves from the building styles, but also from other aspects, such as public facilities, road conditions, prices on menus, even outfits of their residents. This phenomenon makes me wonder how this city is look like from a view of data scientist. So I dug some datasets from the open data source run by the city government of Barcelona.</description>
-    </item>
-    
-    <item>
-      <title>Let&#39;s talk about SGD: Stochastic Gradient Descent</title>
-      <link>https://espe0606.github.io/posts/2022/12/lets-talk-about-sgd-stochastic-gradient-descent/</link>
-      <pubDate>Thu, 01 Dec 2022 07:36:12 +0100</pubDate>
-      
-      <guid>https://espe0606.github.io/posts/2022/12/lets-talk-about-sgd-stochastic-gradient-descent/</guid>
-      <description>It is well known that the Neural Network model is functioning by cooperation of two major components:
-A &amp;ldquo;loss function&amp;rdquo; An &amp;ldquo;optimizer&amp;rdquo; The loss function measures the disparity between the the target&amp;rsquo;s true value and the value the model predicts. There are many kinds of loss function in building the NN model, such as MAE (mean absolute error), MSE(mean-squared error) and Huber loss. I will summarize different usages of them in another post.</description>
     </item>
     
     <item>
