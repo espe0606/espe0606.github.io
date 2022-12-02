@@ -218,6 +218,74 @@ df_edu = df_edu.drop([&amp;#39;Any&amp;#39;,&amp;#39;Codi_Districte&amp;#39;,&am
         </item>
         
         <item>
+            <title>Let&#39;s talk about SGD: Stochastic Gradient Descent</title>
+            <link>https://espe0606.github.io/posts/2022/12/lets-talk-about-sgd-stochastic-gradient-descent/</link>
+            <pubDate>Thu, 01 Dec 2022 07:36:12 +0100</pubDate>
+            
+            <guid>https://espe0606.github.io/posts/2022/12/lets-talk-about-sgd-stochastic-gradient-descent/</guid>
+            <description>It is well known that the Neural Network model is functioning by cooperation of two major components:
+A &amp;ldquo;loss function&amp;rdquo; An &amp;ldquo;optimizer&amp;rdquo; The loss function measures the disparity between the the target&amp;rsquo;s true value and the value the model predicts. There are many kinds of loss function in building the NN model, such as MAE (mean absolute error), MSE(mean-squared error) and Huber loss. I will summarize different usages of them in another post.</description>
+            <content type="html"><![CDATA[<p>It is well known that the Neural Network model is functioning by cooperation of two major components:</p>
+<ul>
+<li>A &ldquo;loss function&rdquo;</li>
+<li>An &ldquo;optimizer&rdquo;</li>
+</ul>
+<p>The loss function measures the disparity between the the target&rsquo;s true value and the value the model predicts. There are many kinds of loss function in building the NN model, such as <code>MAE</code> (mean absolute error), <code>MSE</code>(mean-squared error) and <code>Huber loss</code>. I will summarize different usages of them in another post. For now, just understand that the loss function is a guide for finding the correct values of the model&rsquo;s weights (lower loss is better).</p>
+<p>Optimizer is an algorithm that adjusts the weights to <code>minimize the loss</code>. Mathematically, gradient descent was described as following if the model is linear:</p>
+<p>$$\begin{align*} \text{repeat}&amp;\text{ until convergence:} \lbrace \newline
+w &amp;= w -  \alpha \frac{\partial J(w,b)}{\partial w} \newline
+b &amp;= b -  \alpha \frac{\partial J(w,b)}{\partial b}  \newline \rbrace
+\end{align*}$$</p>
+<p>where, parameters 𝑤 and 𝑏 are updated <code>simultaneously</code>.<br>
+The gradient is defined as:</p>
+<p>$$
+\begin{align}
+\frac{\partial J(w,b)}{\partial w}  &amp;= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})x^{(i)} \newline
+\frac{\partial J(w,b)}{\partial b}  &amp;= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})\
+\end{align}
+$$</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/graphs/contour.png" alt="&amp;ldquo;Contour plot of sgd&amp;rdquo;" title="Contour plot of sgd"></th>
+</tr>
+</thead>
+</table>
+<p>The contour plot above shows the  \(loss\)(𝑤,𝑏)  over a range of  𝑤  and  𝑏 . Loss levels are represented by the rings. Overlayed red arrows, is the path of gradient descent. Here are some things to note:</p>
+<ul>
+<li>The path makes steady (monotonic) progress toward its goal.</li>
+<li>Initial steps are much larger than the steps near the goal.</li>
+</ul>
+<p>Almost all optimization algorithms used in deep learning belong to stochastic gradient descent. When applying it in building Neural Network models, the math part can be directly left to Tensorflow.</p>
+<p>Basically, they are iterative algorithms that train a network in steps. One step of training goes like this:</p>
+<ul>
+<li>Sample some training data and run it through the network to make predictions.</li>
+<li>Measure the loss between the predictions and the true values.</li>
+<li>Finally, adjust the weights in a direction that makes the loss smaller.</li>
+</ul>
+<p>Then just do this over and over until the loss won&rsquo;t decrease any further.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/graphs/sgd.gif" alt="&amp;ldquo;Training with sgd&amp;rdquo;" title="Training with sgd"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Training a neural network with Stochastic Gradient Descent.</em></td>
+</tr>
+</tbody>
+</table>
+<p>From above animation, the pale red dots depict the entire training set, while the solid red dots are the batches. Every time SGD sees a new batch, it will shift the weights (𝑤  the slope and 𝑏 the y-intercept) toward their correct values on that batch. Batch after batch, the line eventually converges to its best fit. You can see that the loss gets smaller as the weights get closer to their true values.</p>
+<p>Btw, each iteration&rsquo;s sample of training data is called a <code>batch</code>, while a complete round of the training data is called an <code>epoch</code>.</p>
+<p>One more thing we need to pay attention is the learning rate α. The larger α is, the faster gradient decent converge. On the other hand, if α is too large, the gradient decent will diverge and never find the right parameters. Therefore, choosing the right α is crucial. However, one SGD algorithm called <code>Adam</code> has an adaptive learning rate that makes it suitable for most problems without any parameter tuning. This characteristics makes it a great general purpose optimizer.</p>
+<p>When a model is built through <code>Tensorflow.keras</code>, adding only a few lines of codes will do the job:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adam&#34;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mae&#34;</span>,)
+</span></span></code></pre></div><p>Certainly the loss function can be substituted by others, and there are several parameters to tune for <code>Adam</code>, I will cover this topic in another post.</p>
+]]></content>
+        </item>
+        
+        <item>
             <title>Regular expression in dealing with datetime</title>
             <link>https://espe0606.github.io/posts/2022/11/regular-expression-in-dealing-with-datetime/</link>
             <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>

@@ -29,6 +29,16 @@ df_edu = df_edu.drop([&amp;#39;Any&amp;#39;,&amp;#39;Codi_Districte&amp;#39;,&am
     </item>
     
     <item>
+      <title>Let&#39;s talk about SGD: Stochastic Gradient Descent</title>
+      <link>https://espe0606.github.io/posts/2022/12/lets-talk-about-sgd-stochastic-gradient-descent/</link>
+      <pubDate>Thu, 01 Dec 2022 07:36:12 +0100</pubDate>
+      
+      <guid>https://espe0606.github.io/posts/2022/12/lets-talk-about-sgd-stochastic-gradient-descent/</guid>
+      <description>It is well known that the Neural Network model is functioning by cooperation of two major components:
+A &amp;ldquo;loss function&amp;rdquo; An &amp;ldquo;optimizer&amp;rdquo; The loss function measures the disparity between the the target&amp;rsquo;s true value and the value the model predicts. There are many kinds of loss function in building the NN model, such as MAE (mean absolute error), MSE(mean-squared error) and Huber loss. I will summarize different usages of them in another post.</description>
+    </item>
+    
+    <item>
       <title>Regular expression in dealing with datetime</title>
       <link>https://espe0606.github.io/posts/2022/11/regular-expression-in-dealing-with-datetime/</link>
       <pubDate>Wed, 30 Nov 2022 15:54:56 +0100</pubDate>
