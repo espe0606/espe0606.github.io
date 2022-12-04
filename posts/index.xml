@@ -30,6 +30,7 @@ She is a CFA certificate holder and now teaching financial course in a top-tier 
 <p>To me, the story is beyond my expectation. I have no doubt that in the near future, compnies will no longer need to hire employees for writing articals, instead they only need &ldquo;prompters&rdquo; who know how to give orders to A.I. and interarct with it.</p>
 <p>I have heared some A.I. scientists are trying to build musician A.I. programs. Given what they had accomplished, it wouldn&rsquo;t surprise me much if a song wrote by an A.I &lsquo;Beethoven&rsquo; win a Grammy award someday.</p>
 <p><a href="https://chat.openai.com/chat">Click here</a> if you want to try ChatGPT.</p>
+<p><img src="https://visitor-badge.glitch.me/badge?page_id=espe0606.visitor_counter.issue.6&amp;left_color=green&amp;right_color=red" alt="visitors"></p>
 <script src="https://utteranc.es/client.js"
         repo="espe0606/comment_sys"
         issue-term="pathname"
@@ -105,6 +106,7 @@ $$</p>
 <p>When a model is built through <code>Tensorflow.keras</code>, adding only a few lines of codes will do the job:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adam&#34;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mae&#34;</span>,)
 </span></span></code></pre></div><p>Certainly the loss function can be substituted by others, and there are several parameters to tune for <code>Adam</code>, I will cover this topic in another post.</p>
+<p><img src="https://visitor-badge.glitch.me/badge?page_id=espe0606.visitor_counter.issue.5&amp;left_color=green&amp;right_color=red" alt="visitors"></p>
 <script src="https://utteranc.es/client.js"
         repo="espe0606/comment_sys"
         issue-term="pathname"
@@ -216,6 +218,7 @@ df_edu = df_edu.drop([&amp;#39;Any&amp;#39;,&amp;#39;Codi_Districte&amp;#39;,&am
 </tbody>
 </table>
 <p>Now the trend is much more clear. I can conclude that in Barcelona across all 10 districts, the bigger the population difference between group with high educational level and with low educational level, the higher the Gini index, and the lower the unemployment rate.</p>
+<p><img src="https://visitor-badge.glitch.me/badge?page_id=espe0606.visitor_counter.issue.4&amp;left_color=green&amp;right_color=red" alt="visitors"></p>
 <script src="https://utteranc.es/client.js"
         repo="espe0606/comment_sys"
         issue-term="pathname"
@@ -327,6 +330,7 @@ df_edu = df_edu.drop([&amp;#39;Any&amp;#39;,&amp;#39;Codi_Districte&amp;#39;,&am
 </tbody>
 </table>
 <p>Seems there is a negative correlation between these two factors. This discovery is actually the opposite of what i thought. Maybe high Gini index means more rich people, thus they provide more employment opportunities for jobseekers. Now I need to turn to the aspect of education, to find out if it also plays a role in affecting the unemployment rate.(To be continued)</p>
+<p><img src="https://visitor-badge.glitch.me/badge?page_id=espe0606.visitor_counter.issue.3&amp;left_color=green&amp;right_color=red" alt="visitors"></p>
 <script src="https://utteranc.es/client.js"
         repo="espe0606/comment_sys"
         issue-term="pathname"
@@ -457,7 +461,8 @@ The final form is as following:</p>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">161</span>	<span style="color:#ae81ff">2016</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">19</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">413</span>	<span style="color:#ae81ff">2016</span><span style="color:#f92672">-</span><span style="color:#ae81ff">11</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">500</span> rows <span style="color:#960050;background-color:#1e0010">×</span> <span style="color:#ae81ff">1</span> columns
-</span></span></code></pre></div><script src="https://utteranc.es/client.js"
+</span></span></code></pre></div><p><img src="https://visitor-badge.glitch.me/badge?page_id=espe0606.visitor_counter.issue.2&amp;left_color=green&amp;right_color=red" alt="visitors"></p>
+<script src="https://utteranc.es/client.js"
         repo="espe0606/comment_sys"
         issue-term="pathname"
         theme="preferred-color-scheme"
@@ -481,6 +486,7 @@ Since most of my time will be dedicated to learn data science, machine learning 
 <p>Since most of my time will be dedicated to learn data science, machine learning and neural networks, this blog will be mainly utilized to record my study progress and some interesting topics.</p>
 <p>Most skills, including writing, need to be polished frequently, or they will fade into nothing, like they never belong to you.</p>
 <p>This blog is built upon Hugo and Github, love them.</p>
+<p><img src="https://visitor-badge.glitch.me/badge?page_id=espe0606.visitor_counter.issue.1&amp;left_color=green&amp;right_color=red" alt="visitors"></p>
 <script src="https://utteranc.es/client.js"
         repo="espe0606/comment_sys"
         issue-term="pathname"
