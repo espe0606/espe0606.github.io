@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 05 Dec 2022 15:46:37 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Dec 2022 19:46:37 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to deal with missing values?</title>
       <link>https://espe0606.github.io/posts/2022/12/how-to-deal-with-missing-values/</link>
-      <pubDate>Mon, 05 Dec 2022 15:46:37 +0100</pubDate>
+      <pubDate>Tue, 06 Dec 2022 19:46:37 +0100</pubDate>
       
       <guid>https://espe0606.github.io/posts/2022/12/how-to-deal-with-missing-values/</guid>
       <description>Missing data can happen in an unorganized raw dataset when no information is given for one or multiple items. There are various reasons behind this. Sometimes people just feel uncomfortable to share certain kind of personal information in a survey. Other times, the data collector may simply forget to input one number. Dealing with missing data is crucial in data science. Trust me, you will feel frustrated when you click the &amp;ldquo;run&amp;rdquo; button to train your hard built machine learning model and get an &amp;ldquo;MissingValueError&amp;rdquo; response from Python.</description>
