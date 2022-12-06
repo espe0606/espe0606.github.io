@@ -6,8 +6,47 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sun, 04 Dec 2022 12:21:37 +0100</lastBuildDate>
+        <lastBuildDate>Mon, 05 Dec 2022 15:46:37 +0100</lastBuildDate>
         <atom:link href="https://espe0606.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>How to deal with missing values?</title>
+            <link>https://espe0606.github.io/posts/2022/12/how-to-deal-with-missing-values/</link>
+            <pubDate>Mon, 05 Dec 2022 15:46:37 +0100</pubDate>
+            
+            <guid>https://espe0606.github.io/posts/2022/12/how-to-deal-with-missing-values/</guid>
+            <description>Missing data can happen in an unorganized raw dataset when no information is given for one or multiple items. There are various reasons behind this. Sometimes people just feel uncomfortable to share certain kind of personal information in a survey. Other times, the data collector may simply forget to input one number. Dealing with missing data is crucial in data science. Trust me, you will feel frustrated when you click the &amp;ldquo;run&amp;rdquo; button to train your hard built machine learning model and get an &amp;ldquo;MissingValueError&amp;rdquo; response from Python.</description>
+            <content type="html"><![CDATA[<p><img src="/others/pandas.png" alt="panda"></p>
+<p>Missing data can happen in an unorganized raw dataset when no information is given for one or multiple items. There are various reasons  behind this. Sometimes people just feel uncomfortable to share certain kind of personal information in a survey. Other times, the data collector may simply forget to input one number. Dealing with missing data is crucial in data science. Trust me, you will feel frustrated when you click the &ldquo;run&rdquo; button to train your hard built machine learning model and get an &ldquo;MissingValueError&rdquo; response from Python.</p>
+<p>There is a module called &ldquo;<a href="https://pandas.pydata.org/about/">Pandas</a>&rdquo; in Python can help us taking care of this issue (Can anyone tell me in comment why the developers gave it such a cute name?). It is a <code>must</code> learn module for every data scientist because of its efficiency in processing large datasets.</p>
+<p>In Pandas, missing data is mainly represented by
+NaN (Not a Number), a special floating-point value recognized by all systems that use the standard IEEE floating-point representation.</p>
+<p>There are several functions in Pandas dataframe that can help us:</p>
+<p><code>isnull()</code> and <code>notnull()</code>:<br>
+Both function help in checking whether a value is NaN or not. These function can also be used in Pandas Series in order to find null values in a series.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>missing_income <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>isnull(data[<span style="color:#e6db74">&#39;income&#39;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#isnull() return dataframe of Boolean values which are True for NaN values</span>
+</span></span><span style="display:flex;"><span>income <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>notnull(data[<span style="color:#e6db74">&#39;income&#39;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#notnull() return dataframe of Boolean values which are False for NaN values</span>
+</span></span></code></pre></div><p><code>dropna()</code>:<br>
+This function provides different mathods to drop rows/columns of datasets that have NaN values.</p>
+<p>For example, it can drop rows with at least one NaN value: <code>df.dropna()</code>. Or it can drop rows which all values are missing: <code>df.dropna(how ='all')</code>. If you want to drop columns that ave at least one NaN value: <code>df.dropna(axis=1)</code> (Normally not an optimized solution). Check this <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html">documentation</a> for details.</p>
+<p><code>replace()</code>,<code>fillna()</code> and <code>interpolate()</code>:<br>
+These three functions substitute NaN value with a value given by themselves. For example: <code>df.fillna(0)</code> will replace all NaN with a 0 or any number given in the parentheses. <code>df.fillna(mathod='pad')</code>will fill NaN with the previous value.</p>
+<p>The use of <code>replace()</code> is more general. Literally, it can replace any value in  a dataframe. Here, if we want to replace NaN values, we have to use this form: <code>df.replace(to_replace = np.nan, value = 0)</code>.Click <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.replace.html">here</a> for more information.</p>
+<p><code>interpolate()</code> is more like give a method to Pandas so it can compute a value to replace the NaN value. For example: <code>df.interpolate(method ='linear', limit_direction ='forward')</code> will use a forward oriented linear function to compute a value and use it to replace the missing value. Beside the default setting <code>linear</code> method, there are other methods that can fulfill our needs, such as <code>polynomial</code>, <code>cubic</code>, <code>spline</code> etc,. For more details about this function, feel free to click <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.interpolate.html?highlight=interpolate#pandas.DataFrame.interpolate">here</a></p>
+<p>Choosing the right function to process missing values is crucial for the success of any kind of data science task. Don&rsquo;t drop any NaN blindfolded. Think carefully, if possible, find reasons to explain why the value is missing. It could be a feature that not match for a certain observation.  In this case, replacing the NaN with the mean value then creating a new column to indicate the status of missing value is more likely a better solution.</p>
+<p><img src="/others/extension.png" alt="extension"></p>
+<p><img src="https://visitor-badge.glitch.me/badge?page_id=espe0606.visitor_counter.issue.7&amp;left_color=green&amp;right_color=red" alt="visitors"></p>
+<script src="https://utteranc.es/client.js"
+        repo="espe0606/comment_sys"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+]]></content>
+        </item>
         
         <item>
             <title>How will A.I. affect some so called &#39;creative&#39; jobs?</title>
