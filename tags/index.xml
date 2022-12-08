@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 06 Dec 2022 19:46:37 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Dec 2022 13:23:37 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data analyzing</title>
+      <link>https://espe0606.github.io/tags/data-analyzing/</link>
+      <pubDate>Thu, 08 Dec 2022 13:23:37 +0100</pubDate>
+      
+      <guid>https://espe0606.github.io/tags/data-analyzing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>https://espe0606.github.io/tags/sql/</link>
+      <pubDate>Thu, 08 Dec 2022 13:23:37 +0100</pubDate>
+      
+      <guid>https://espe0606.github.io/tags/sql/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Data cleaning</title>
       <link>https://espe0606.github.io/tags/data-cleaning/</link>
@@ -59,15 +77,6 @@
       <pubDate>Fri, 02 Dec 2022 20:50:12 +0100</pubDate>
       
       <guid>https://espe0606.github.io/tags/tensorflow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data analyzing</title>
-      <link>https://espe0606.github.io/tags/data-analyzing/</link>
-      <pubDate>Thu, 01 Dec 2022 17:02:04 +0100</pubDate>
-      
-      <guid>https://espe0606.github.io/tags/data-analyzing/</guid>
       <description></description>
     </item>
     

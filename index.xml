@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 06 Dec 2022 19:46:37 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Dec 2022 13:23:37 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Some knowledge about SQL (Part.1)</title>
+      <link>https://espe0606.github.io/posts/2022/12/some-knowledge-about-sql-part.1/</link>
+      <pubDate>Thu, 08 Dec 2022 13:23:37 +0100</pubDate>
+      
+      <guid>https://espe0606.github.io/posts/2022/12/some-knowledge-about-sql-part.1/</guid>
+      <description>SQL is one kind of DBMS (Database Management System). For the purpose of data analyze, database (DB) is a collection of data stored in some organized fashion. The simplest way to think of it is to imagine a database as a container. The container is simply a physical location to store data, regardless of what that data is or how it is organized. SQL means Structured Query Language which designed specifically for communicating with databases.</description>
+    </item>
+    
     <item>
       <title>How to deal with missing values?</title>
       <link>https://espe0606.github.io/posts/2022/12/how-to-deal-with-missing-values/</link>
