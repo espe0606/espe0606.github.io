@@ -6,8 +6,135 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 08 Dec 2022 13:23:37 +0100</lastBuildDate>
+        <lastBuildDate>Fri, 09 Dec 2022 22:23:37 +0100</lastBuildDate>
         <atom:link href="https://espe0606.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Some knowledge about SQL (Part.2)</title>
+            <link>https://espe0606.github.io/posts/2022/12/some-knowledge-about-sql-part.2/</link>
+            <pubDate>Fri, 09 Dec 2022 22:23:37 +0100</pubDate>
+            
+            <guid>https://espe0606.github.io/posts/2022/12/some-knowledge-about-sql-part.2/</guid>
+            <description>The most basic command for filtering data is using SELECT statement’s WHERE clause to specify search conditions. Within a SELECT statement, data is filtered by specifying search criteria in the WHERE clause. The WHERE clause is specified right after the table name (the FROM clause) as follows:
+select column_1, column_2 from table where column_1 &amp;gt; 5
+Caution:
+When using both ORDER BY and WHERE clauses, make sure that ORDER BY comes after the WHERE.</description>
+            <content type="html"><![CDATA[<p><img src="/others/sqlf.png" alt="sql_filtering"></p>
+<p>The most basic command for filtering data is using  SELECT statement’s WHERE clause to specify search conditions. Within a SELECT statement, data is filtered by specifying search criteria in the WHERE clause. The WHERE clause is specified right after the table name (the FROM clause) as follows:<br>
+<code>select column_1, column_2 from table where column_1 &gt; 5</code></p>
+<blockquote>
+<p>Caution:<br>
+When using both ORDER BY and WHERE clauses, make sure that ORDER BY comes <code>after</code> the WHERE.</p>
+</blockquote>
+<p>Another example:<br>
+<code>select column_1, column_2 from table where column_1 != &quot;seller01&quot;</code></p>
+<blockquote>
+<p>Caution:<br>
+!= and &lt;&gt; can usually be used interchangeably. However, not all DBMSs support both forms of the non-equality operator. You&rsquo;d better checked documentation of DBMS for details.</p>
+</blockquote>
+<p>Example continues, to check for a range of values:<br>
+<code>select column_1, column_2 from table where column_2 between 5 and 10</code></p>
+<p>Another important application of filtering is finding NULL value. The SELECT statement has a special WHERE clause that can be used to check for columns with NULL values—the <code>IS NULL</code> clause. The syntax looks like this:<br>
+<code>select column_1 from table where column_2 is null</code></p>
+<p>Now let&rsquo;s see how to combine <code>WHERE</code> to create more sophisticated filtering:</p>
+<ol>
+<li>
+<p>AND:<br>
+To filter by more than one column, we use the AND operator to add conditions to WHERE clause. The following code demonstrates this:<br>
+<code>select column_1, pcolumn_2, column_3 from table where column_1 = &quot;seller3&quot; and column_2 &lt;= 10</code><br>
+only rows matching all the specified conditions should be retrieved.</p>
+</li>
+<li>
+<p>OR:<br>
+To retrieve rows that match either condition. In most of DBMSs, if the first condition was met, the row would be retrieved regardless of the second condition. Check the following example:<br>
+<code>select column_1, pcolumn_2, column_3 from table where vcolumn_1 = &quot;seller3&quot; or column_3 = &quot;certain item&quot;</code></p>
+</li>
+</ol>
+<h3 id="order-of-evaluation">Order of evaluation</h3>
+<ol>
+<li>SQL processes AND operators before OR operators.</li>
+<li>Parentheses have a higher order of evaluation than either AND or OR operators.</li>
+</ol>
+<p>For example:<br>
+<code>select vend_id, prod_name, prod_price from Products where vend_id = &quot;DLL01&quot; or vend_Id = &quot;BRS01&quot; and prod_price &gt;= 10</code><br>
+The result is equal to:<br>
+<code>select vend_id, prod_name, prod_price from Products where vend_id = &quot;DLL01&quot; or (vend_Id = &quot;BRS01&quot; and prod_price &gt;= 10)</code></p>
+<blockquote>
+<p>Tip:<br>
+Whenever you write WHERE clauses that use both AND and OR operators, use <code>parentheses</code> to explicitly group operators. Don’t ever rely on the default evaluation order, even if it is exactly what you want.</p>
+</blockquote>
+<h3 id="in-operator">IN operator</h3>
+<p><code>select prod_name, prod_price from Products where vend_id in (&quot;dll01&quot;,&quot;brs01&quot;)  order by prod_name</code><br>
+The SELECT statement retrieves all products made by vendor DLL01 and vendor BRS01. The IN operator is followed by a comma-delimited list of valid values, and the entire list must be enclosed within parentheses. Above code has same effect as code beneath:<br>
+<code>select prod_name, prod_price from Products where vend_id = &quot;DLL01&quot; or vend_id = &quot;BRS01&quot; order by prod_name</code></p>
+<blockquote>
+<p>Tips: Advantage of using IN operator:</p>
+<ul>
+<li>When working with long lists of valid options, the IN operator syntax is far cleaner and easier to read.</li>
+<li>The order of evaluation is easier to manage when IN is used in conjunction with other AND and OR operators.</li>
+<li>IN operators almost always execute more quickly than lists of OR operators.</li>
+<li>The biggest advantage of IN is that the IN operator can contain another <code>SELECT</code> statement, enabling you to build highly dynamic WHERE clauses.</li>
+</ul>
+</blockquote>
+<h3 id="not-operator">NOT operator</h3>
+<p>NOT is used to negate whatever condition comes next. For example:<br>
+<code>select prod_name, vend_id from Products where not vend_id = &quot;DLL01&quot;</code><br>
+The NOT here negates the condition that follows it; so the DBMS matches vend_id to anything that is not DLL01.</p>
+<h3 id="wildcards">Wildcards</h3>
+<p>Wildcards are special <code>characters</code> used to match parts of a value. Using wildcards can create <code>search patterns</code> that can be compared against data. To use wildcards in search clauses, the LIKE operator must be used. LIKE instructs the DBMS that the following search pattern is to be compared using a wildcard match rather than a straight equality match.</p>
+<blockquote>
+<p>Tip:<br>
+Wildcard searching can only be used with strings, you can’t use wildcards to search fields of non-text datatypes.</p>
+</blockquote>
+<ol>
+<li>The Percent Sign ( % )<br>
+Within a search string, % means, match any number of occurrences of any character. For example, to find all products that started with the word Fish, you can issue the following SELECT statement:<br>
+<code>select prod_id, prod_name from Products where prod_name like  &quot;fish%&quot;</code><br>
+The % tells the DBMS to find out any characters after the word <code>Fish</code>, regardless of how many characters there are. Wildcards can be used anywhere within the search pattern, and multiple wildcards may be used as well:<br>
+<code>select prod_id, prod_name from Products where prod_name like &quot;%bean bag%&quot;</code><br>
+The search pattern ‘%bean bag%’ means match any value that contains the text bean bag anywhere within it, regardless of any characters before or after that text.</li>
+</ol>
+<blockquote>
+<p>Tips:</p>
+<ul>
+<li>It is important to note that, In addition to matching one or more characters, % also matches zero characters. % represents zero, one, or more characters at the specified location in the search pattern.</li>
+<li>% doesn&rsquo;t match NULL</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>
+<p>The Underscore ( _ )<br>
+The underscore is used just like %, but instead of matching multiple characters the underscore matches just <code>a single character</code>. Following example uses <code>Two</code> underscore(_):<br>
+<code>select prod_name, prod_price from Products where prod_name like &quot;__ inch teddy bear&quot;</code></p>
+</li>
+<li>
+<p>The Brackets ( [] )<br>
+The brackets ([]) wildcard is used to specify a set of characters, any one of which must match a character in the specified position (the location of the wildcard). For example, to find all contacts whose names begin with the letter J or the letter M, we can do the following:<br>
+<code>select cust_contact from Customers where cust_contact rlike '[JM].*' order by cust_contact</code><br>
+<code>rlike</code> here means like in regular expression patterns.<br>
+Adding <code>^</code> to negate: <code>[^JM]</code> .</p>
+</li>
+</ol>
+<blockquote>
+<p>Tips:</p>
+<ol>
+<li>Wildcard searches typically take far longer to process than any other search types discussed previously.</li>
+<li>Don’t overuse wildcards. If another search operator will do, use it instead.</li>
+<li>When you do use wildcards, try to not use them at the beginning of the search pattern unless absolutely necessary. Search patterns that begin with wildcards are the slowest to process.</li>
+<li>Pay careful attention to the placement of the wildcard symbols. If they are misplaced, you might not return the data you intended.</li>
+</ol>
+</blockquote>
+<p>REF: SQL in 10 mins by Ben Forta</p>
+<p><img src="https://visitor-badge.glitch.me/badge?page_id=espe0606.visitor_counter.issue.9&amp;left_color=green&amp;right_color=red" alt="visitors"></p>
+<script src="https://utteranc.es/client.js"
+        repo="espe0606/comment_sys"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+]]></content>
+        </item>
         
         <item>
             <title>Some knowledge about SQL (Part.1)</title>
@@ -67,6 +194,7 @@ here <code>order by 2, 3</code> means sort by column_2 and then by column_3. The
 <h2 id="specifying-sort-direction">Specifying Sort Direction</h2>
 <p>The default sort order is ascending (from A to Z). To sort by descending order, the keyword DESC must be specified.<br>
 <code>select column_1, column_2, column_3   from table   order by column_2 desc, column_3 desc</code></p>
+<p>REF: SQL in 10 mins by Ben Forta</p>
 <p><img src="https://visitor-badge.glitch.me/badge?page_id=espe0606.visitor_counter.issue.8&amp;left_color=green&amp;right_color=red" alt="visitors"></p>
 <script src="https://utteranc.es/client.js"
         repo="espe0606/comment_sys"
