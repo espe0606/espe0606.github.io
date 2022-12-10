@@ -9,11 +9,11 @@
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 09 Dec 2022 22:23:37 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Some knowledge about SQL (Part.2)</title>
-      <link>https://espe0606.github.io/posts/2022/12/some-knowledge-about-sql-part.2/</link>
+      <title>Methods of filtering data</title>
+      <link>https://espe0606.github.io/posts/2022/12/methods-of-filtering-data/</link>
       <pubDate>Fri, 09 Dec 2022 22:23:37 +0100</pubDate>
       
-      <guid>https://espe0606.github.io/posts/2022/12/some-knowledge-about-sql-part.2/</guid>
+      <guid>https://espe0606.github.io/posts/2022/12/methods-of-filtering-data/</guid>
       <description>The most basic command for filtering data is using SELECT statement’s WHERE clause to specify search conditions. Within a SELECT statement, data is filtered by specifying search criteria in the WHERE clause. The WHERE clause is specified right after the table name (the FROM clause) as follows:
 select column_1, column_2 from table where column_1 &amp;gt; 5
 Caution:
@@ -21,11 +21,11 @@ When using both ORDER BY and WHERE clauses, make sure that ORDER BY comes after 
     </item>
     
     <item>
-      <title>Some knowledge about SQL (Part.1)</title>
-      <link>https://espe0606.github.io/posts/2022/12/some-knowledge-about-sql-part.1/</link>
+      <title>Basic ideas of SQL, retrieving and sorting data</title>
+      <link>https://espe0606.github.io/posts/2022/12/basic-ideas-of-sql-retrieving-and-sorting-data/</link>
       <pubDate>Thu, 08 Dec 2022 13:23:37 +0100</pubDate>
       
-      <guid>https://espe0606.github.io/posts/2022/12/some-knowledge-about-sql-part.1/</guid>
+      <guid>https://espe0606.github.io/posts/2022/12/basic-ideas-of-sql-retrieving-and-sorting-data/</guid>
       <description>SQL is one kind of DBMS (Database Management System). For the purpose of data analyze, database (DB) is a collection of data stored in some organized fashion. The simplest way to think of it is to imagine a database as a container. The container is simply a physical location to store data, regardless of what that data is or how it is organized. SQL means Structured Query Language which designed specifically for communicating with databases.</description>
     </item>
     
