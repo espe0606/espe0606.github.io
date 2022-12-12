@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 09 Dec 2022 22:23:37 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Dec 2022 17:33:37 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Calculated fields and data manipulation</title>
+      <link>https://espe0606.github.io/posts/2022/12/calculated-fields-and-data-manipulation/</link>
+      <pubDate>Sun, 11 Dec 2022 17:33:37 +0100</pubDate>
+      
+      <guid>https://espe0606.github.io/posts/2022/12/calculated-fields-and-data-manipulation/</guid>
+      <description>Sometimes we need to manipulate the data stored in the table. For example: retrieving converted, calculated, or reformatted data. This is where calculated fields come in.
+Concatenating Fields Concatenate means joining values together (by appending them to each other) to form a single long value. The SELECT statement can help us with this task. In SQL SELECT statements, we can concatenate columns using a special operator. Depending on what DBMS we are using, this can be a plus sign (+) or two pipes (||).</description>
+    </item>
+    
     <item>
       <title>Methods of filtering data</title>
       <link>https://espe0606.github.io/posts/2022/12/methods-of-filtering-data/</link>

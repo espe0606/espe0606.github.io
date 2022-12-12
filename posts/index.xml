@@ -6,8 +6,85 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 09 Dec 2022 22:23:37 +0100</lastBuildDate>
+        <lastBuildDate>Sun, 11 Dec 2022 17:33:37 +0100</lastBuildDate>
         <atom:link href="https://espe0606.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Calculated fields and data manipulation</title>
+            <link>https://espe0606.github.io/posts/2022/12/calculated-fields-and-data-manipulation/</link>
+            <pubDate>Sun, 11 Dec 2022 17:33:37 +0100</pubDate>
+            
+            <guid>https://espe0606.github.io/posts/2022/12/calculated-fields-and-data-manipulation/</guid>
+            <description>Sometimes we need to manipulate the data stored in the table. For example: retrieving converted, calculated, or reformatted data. This is where calculated fields come in.
+Concatenating Fields Concatenate means joining values together (by appending them to each other) to form a single long value. The SELECT statement can help us with this task. In SQL SELECT statements, we can concatenate columns using a special operator. Depending on what DBMS we are using, this can be a plus sign (+) or two pipes (||).</description>
+            <content type="html"><![CDATA[<div align=center>  <!-- 可选的项：right，left，center -->
+    <img src="/others/calculate.jpeg" width="800" height="300">  <!-- src处填写路径（本地或网络） width 和 height 就是控制图片的大小的-->
+</div>
+<p>Sometimes we need to manipulate the data stored in the table. For example: retrieving converted, calculated, or reformatted data. This is where calculated fields come in.</p>
+<h3 id="concatenating-fields">Concatenating Fields</h3>
+<p>Concatenate means joining values together (by appending them to each other) to form a single long value. The <code>SELECT</code> statement  can help us with this task. In SQL SELECT statements, we can concatenate columns using a special operator. Depending on what DBMS we are using, this can be a plus sign (+) or two pipes (||). For example:<br>
+<code>SELECT 'student' + 'class' from registered_students</code><br>
+Or we can use a function <code>CONCAT()</code> :<br>
+<code>SELECT CONCAT(student, &quot;-&quot;, class) from registered_students</code>
+The above SELECT statements concatenate the following elements:</p>
+<ul>
+<li>The name stored in the <code>student</code> column</li>
+<li>A string containing a <code>-</code></li>
+<li>The registered class stored <code>class</code> column</li>
+</ul>
+<p>We can use aliases to give the retrieved information a new column name, using <code>as</code> which always come behind the <code>SELECT</code> statement. For example:<br>
+<code>SELECT CONCAT(student, &quot;-&quot;, class) from registered_students as stu_info</code></p>
+<blockquote>
+<p>Tip:<br>
+Aliases have other uses too. Some common uses include renaming a column if the real table column name contains illegal characters (for example, spaces), and expanding column names if the original names are either ambiguous or easily misread.</p>
+</blockquote>
+<h3 id="mathematical-calcualtions">Mathematical Calcualtions</h3>
+<p>SQL is capable of performing math calculations on retrieved data, by simply using math operators between the selected columns. For example:<br>
+<code>select prod_id,quantity, item_price,   quantity*item_price as expanded_price   from OrderItems where order_num = 20008</code><br>
+Most commonly used math operators are listed in the following pic:</p>
+<p><img src="/others/math_op.jpeg" alt="Mathoperators"></p>
+<h3 id="functions">Functions</h3>
+<p>Before we begin to discuss how to utilize Functions, we should be aware that using SQL functions can be highly problematic.</p>
+<p>Why is that? Because functions tend to be very DBMS specific. Very few functions are supported identically by all major DBMSs. Although all types of functionality are usually available in each DBMS, the function name or syntax can differ greatly. If you do decide to use functions, make sure you comment your code well, so that at a later date you (or another developer) will know exactly what SQL implementation you were writing to.</p>
+<p>Most SQL implementations support the following types of functions:</p>
+<ol>
+<li>Text functions are used to manipulate strings of text (for example, trimming or padding values and converting values to upper and lowercase).</li>
+<li>Numeric functions are used to perform mathematical operations on numeric data (for example, returning absolute numbers and performing algebraic calculations).</li>
+<li>Date and time functions are used to manipulate date and time values and to extract specific components from these values (for example, returning differences between dates, and checking date validity).</li>
+<li>System functions return information specific to the DBMS being used (for example, returning user login information).</li>
+</ol>
+<h4 id="text-manipulation-functions">Text Manipulation Functions</h4>
+<p>Following table summerizes the most useful SQL functions to manipulate strings:</p>
+<div align=center>  <!-- 可选的项：right，left，center -->
+    <img src="/others/stringtable.webp" width="600" height="500">  <!-- src处填写路径（本地或网络） width 和 height 就是控制图片的大小的-->
+</div>
+<p><code>SOUNDEX</code> is an algorithm that converts any string of text into an alphanumeric pattern describing the phonetic representation of that text. SOUNDEX takes into account similar sounding characters and syllables, enabling strings to be compared by how they sound rather than how they have been typed. Although SOUNDEX is not a SQL concept, most DBMSs do offer SOUNDEX support.</p>
+<p>Here is an example using the <code>SOUNDEX</code> function. Suppose you have a customer&rsquo;s name &ldquo;Michelle Green&rdquo; in the Customer table, but what if that were a typo, and the contact actually was supposed to have been &ldquo;Michael Green&rdquo;? Obviously, searching by the correct contact name would return no data, as shown here:<br>
+<code>select cust_name, cust_contact from Customers where cust_contact = &quot;Michael Green&quot;</code><br>
+Now try the same search using the SOUNDEX() function to match all contact names that <code>sound similar</code> to Michael Green:<br>
+<code>select cust_name, cust_contact from Customers where soundex(cust_contact) = soundex(&quot;micheal green&quot;)</code><br>
+In this example, the WHERE clause uses the SOUNDEX() function to convert both the cust_contact column value and the search string to their SOUNDEX values. Because Michael Green and Michelle Green sound alike, their SOUNDEX values match, and so the WHERE clause correctly filtered the desired data.</p>
+<h4 id="date-and-time-manipulation-functions">Date and Time Manipulation Functions</h4>
+<p>Date-time manipulation functions are particularly DBMS specific. Refer to your DBMS documentation for the list of the date-time manipulation functions it supports. Here is a simple example for MySQL and MariaDB:
+<code>select * from Orders where year(order_date) = 2012</code><br>
+The example shown here extracted and used part of a date (the year). To filter by a specific month the same process could be used, specifying an AND operator and both year and month comparisons.</p>
+<h4 id="numeric-manipulation-functions">Numeric Manipulation Functions</h4>
+<p>Table beneath lists some of the more commonly used numeric manipulation functions:</p>
+<div align=center>  <!-- 可选的项：right，left，center -->
+    <img src="/others/numtable.webp" width="600" height="600">  <!-- src处填写路径（本地或网络） width 和 height 就是控制图片的大小的-->
+</div>
+<p>Refer to your DBMS documentation for a list of the supported mathematical manipulation functions.</p>
+<p>REF: SQL in 10 mins by Ben Forta</p>
+<p><img src="https://visitor-badge.glitch.me/badge?page_id=espe0606.visitor_counter.issue.10&amp;left_color=green&amp;right_color=red" alt="visitors"></p>
+<script src="https://utteranc.es/client.js"
+        repo="espe0606/comment_sys"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+]]></content>
+        </item>
         
         <item>
             <title>Methods of filtering data</title>
