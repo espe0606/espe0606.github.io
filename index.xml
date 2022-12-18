@@ -7,14 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 11 Dec 2022 17:33:37 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 11:57:33 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Updating</title>
+      <link>https://espe0606.github.io/posts/2022/12/updating/</link>
+      <pubDate>Thu, 15 Dec 2022 11:57:33 +0100</pubDate>
+      
+      <guid>https://espe0606.github.io/posts/2022/12/updating/</guid>
+      <description>I have been working on a LSTM model these days, however the progress is not going very well. There are several problems I still need to figure out.
+(Graph source: Towards Data Science,TDS, by Michael Phi)
+The model I built seems fit on stocks with more &amp;rsquo;linear&amp;rsquo; price fluctuation, but doesn&amp;rsquo;t work well on those with &amp;rsquo;exponential&amp;rsquo; price fluctuation (no matter upside or downside).
+Input parameters are not enough. Right now, I&amp;rsquo;m using time series of past close price for the forecasting.</description>
+    </item>
+    
     <item>
       <title>Calculated fields and data manipulation</title>
       <link>https://espe0606.github.io/posts/2022/12/calculated-fields-and-data-manipulation/</link>
       <pubDate>Sun, 11 Dec 2022 17:33:37 +0100</pubDate>
       
       <guid>https://espe0606.github.io/posts/2022/12/calculated-fields-and-data-manipulation/</guid>
-      <description>Sometimes we need to manipulate the data stored in the table. For example: retrieving converted, calculated, or reformatted data. This is where calculated fields come in.
+      <description>Sometimes we need to manipulate the data stored in a table. For example: retrieving converted, calculated, or reformatted data. This is where calculated fields come in.
 Concatenating Fields Concatenate means joining values together (by appending them to each other) to form a single long value. The SELECT statement can help us with this task. In SQL SELECT statements, we can concatenate columns using a special operator. Depending on what DBMS we are using, this can be a plus sign (+) or two pipes (||).</description>
     </item>
     
@@ -97,19 +109,6 @@ df_edu = df_edu.drop([&amp;#39;Any&amp;#39;,&amp;#39;Codi_Districte&amp;#39;,&am
       <description>Last week I encountered a medical dataset that has multiple types of date time format. My task is to correctly identify all of the different date variants encoded in this dataset and to properly normalize and sort the dates.
 Some of the variants are like this:
 * 04/20/2009; 04/20/09; 4/20/09; 4/3/09 * Mar-20-2009; Mar 20, 2009; March 20, 2009; Mar. 20, 2009; Mar 20 2009; * 20 Mar 2009; 20 March 2009; 20 Mar.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://espe0606.github.io/about/</link>
-      <pubDate>Tue, 29 Nov 2022 14:31:41 +0100</pubDate>
-      
-      <guid>https://espe0606.github.io/about/</guid>
-      <description>We are never anywhere but here.
-Bodies vanish, but minds persist.
-We feel. We experience. We learn. We create.
-So we live.
-Enjoy!</description>
     </item>
     
   </channel>

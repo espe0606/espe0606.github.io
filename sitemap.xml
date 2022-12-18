@@ -2,10 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://espe0606.github.io/posts/2022/12/calculated-fields-and-data-manipulation/</loc>
-    <lastmod>2022-12-11T17:33:37+01:00</lastmod>
-  </url><url>
     <loc>https://espe0606.github.io/categories/</loc>
+    <lastmod>2022-12-15T11:57:33+01:00</lastmod>
+  </url><url>
+    <loc>https://espe0606.github.io/posts/</loc>
+    <lastmod>2022-12-15T11:57:33+01:00</lastmod>
+  </url><url>
+    <loc>https://espe0606.github.io/categories/random-thoughts/</loc>
+    <lastmod>2022-12-15T11:57:33+01:00</lastmod>
+  </url><url>
+    <loc>https://espe0606.github.io/</loc>
+    <lastmod>2022-12-15T11:57:33+01:00</lastmod>
+  </url><url>
+    <loc>https://espe0606.github.io/tags/</loc>
+    <lastmod>2022-12-15T11:57:33+01:00</lastmod>
+  </url><url>
+    <loc>https://espe0606.github.io/tags/thoughts-in-my-mind/</loc>
+    <lastmod>2022-12-15T11:57:33+01:00</lastmod>
+  </url><url>
+    <loc>https://espe0606.github.io/posts/2022/12/updating/</loc>
+    <lastmod>2022-12-15T11:57:33+01:00</lastmod>
+  </url><url>
+    <loc>https://espe0606.github.io/posts/2022/12/calculated-fields-and-data-manipulation/</loc>
     <lastmod>2022-12-11T17:33:37+01:00</lastmod>
   </url><url>
     <loc>https://espe0606.github.io/categories/coding/</loc>
@@ -17,16 +35,7 @@
     <loc>https://espe0606.github.io/categories/data-science/</loc>
     <lastmod>2022-12-11T17:33:37+01:00</lastmod>
   </url><url>
-    <loc>https://espe0606.github.io/posts/</loc>
-    <lastmod>2022-12-11T17:33:37+01:00</lastmod>
-  </url><url>
-    <loc>https://espe0606.github.io/</loc>
-    <lastmod>2022-12-11T17:33:37+01:00</lastmod>
-  </url><url>
     <loc>https://espe0606.github.io/tags/sql/</loc>
-    <lastmod>2022-12-11T17:33:37+01:00</lastmod>
-  </url><url>
-    <loc>https://espe0606.github.io/tags/</loc>
     <lastmod>2022-12-11T17:33:37+01:00</lastmod>
   </url><url>
     <loc>https://espe0606.github.io/posts/2022/12/methods-of-filtering-data/</loc>
@@ -47,12 +56,6 @@
     <loc>https://espe0606.github.io/posts/2022/12/how-will-a.i.-affect-some-so-called-creative-jobs/</loc>
     <lastmod>2022-12-04T12:21:37+01:00</lastmod>
   </url><url>
-    <loc>https://espe0606.github.io/categories/random-thoughts/</loc>
-    <lastmod>2022-12-04T12:21:37+01:00</lastmod>
-  </url><url>
-    <loc>https://espe0606.github.io/tags/thoughts-in-my-mind/</loc>
-    <lastmod>2022-12-04T12:21:37+01:00</lastmod>
-  </url><url>
     <loc>https://espe0606.github.io/posts/2022/12/lets-talk-about-sgd-stochastic-gradient-descent/</loc>
     <lastmod>2022-12-02T20:50:12+01:00</lastmod>
   </url><url>
@@ -60,9 +63,6 @@
     <lastmod>2022-12-02T20:50:12+01:00</lastmod>
   </url><url>
     <loc>https://espe0606.github.io/categories/math/</loc>
-    <lastmod>2022-12-02T20:50:12+01:00</lastmod>
-  </url><url>
-    <loc>https://espe0606.github.io/tags/neural-network/</loc>
     <lastmod>2022-12-02T20:50:12+01:00</lastmod>
   </url><url>
     <loc>https://espe0606.github.io/posts/2022/12/how-education-level-affect-gini-index-and-unemployment-rate-in-barcelona-part.-2/</loc>

@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 11 Dec 2022 17:33:37 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 11:57:33 +0100</lastBuildDate><atom:link href="https://espe0606.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Random Thoughts</title>
+      <link>https://espe0606.github.io/categories/random-thoughts/</link>
+      <pubDate>Thu, 15 Dec 2022 11:57:33 +0100</pubDate>
+      
+      <guid>https://espe0606.github.io/categories/random-thoughts/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Coding</title>
       <link>https://espe0606.github.io/categories/coding/</link>
@@ -23,15 +32,6 @@
       <pubDate>Sun, 11 Dec 2022 17:33:37 +0100</pubDate>
       
       <guid>https://espe0606.github.io/categories/data-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Random Thoughts</title>
-      <link>https://espe0606.github.io/categories/random-thoughts/</link>
-      <pubDate>Sun, 04 Dec 2022 12:21:37 +0100</pubDate>
-      
-      <guid>https://espe0606.github.io/categories/random-thoughts/</guid>
       <description></description>
     </item>
     
